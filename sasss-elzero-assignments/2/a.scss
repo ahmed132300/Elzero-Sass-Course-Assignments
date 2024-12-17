@@ -1,0 +1,160 @@
+//one
+
+
+@mixin arrow($direction) {
+    content: "";
+    position: absolute;
+    border: 20px solid transparent;
+
+    @if ($direction ==top) {
+        top: -40px;
+        border-bottom-color: red;
+    }
+
+    @else if ($direction ==right) {
+        right: -40px;
+        border-left-color: red;
+    }
+
+    @else if ($direction ==bottom) {
+        bottom: -40px;
+        border-top-color: red;
+    }
+
+    @else if ($direction ==left) {
+        left: -40px;
+        border-right-color: red;
+    }
+}
+
+.element {
+    &:before {
+        @include arrow("left");
+    }
+}
+
+//two
+$grid_col: 16;
+
+@for $i from 1 through $grid_col {
+    .col-#{$i} {
+        width: calc($i / $grid_col * 100%);
+    }
+}
+
+//three
+$names: "books" 20px red 18,
+    "games" 30px green 18,
+    "dvds" 20px blue;
+
+@each $name,
+$padding,
+$color,
+$fontSize in $names {
+    .#{$name} {
+        padding: #{$padding};
+        font-size: if($fontSize, #{$fontSize}px, 16px); // التحقق من وجود حجم الخط وتعيين القيمة الافتراضية
+        border-bottom: 2px solid $color;
+        color: #444;
+    }
+}
+
+//four
+$init: 1;
+
+// Output
+@while $init <=5 {
+    .circle-#{$init * 100} {
+        width: $init * 100px;
+        height: $init * 100px;
+        border-radius: $init * 50px;
+
+    }
+
+    $init: $init + 1;
+}
+
+
+//five
+$init: 1;
+
+// Output
+@for $i from 1 through 5 {
+    .circle-#{$i * 100} {
+        width: $i * 100px;
+        height: $i * 100px;
+        border-radius: $i * 50px;
+
+    }
+}
+
+//six
+@mixin placeholder($color) {
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+
+    &::-moz-placeholder {
+        color: $color;
+    }
+
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+
+    &::-moz-placeholder {
+        color: $color;
+    }
+}
+
+textarea {
+    @include placeholder(#777);
+}
+
+// seven
+@mixin flex-center($width: 400px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: if($width==$width, $width, 400px);
+}
+
+.box-one {
+    @include flex-center(400px);
+}
+
+.box-two {
+    @include flex-center;
+}
+
+//eight
+$num: 2;
+$start: 100;
+
+$num: 2;
+$start: 100px;
+
+@function double($size) {
+    @return $size * $num;
+}
+
+@for $i from 1 through 5 {
+    .box-#{$start * pow($num, $i - 1)} {
+        width: $start * pow($num, $i - 1);
+        height: double($start * pow($num, $i - 1));
+    }
+}
+
+//nine
+@function get-total($numbers...) {
+    $total:0;
+    @each $number in $numbers {
+        $total: $total + $number;
+    }
+    @return $total;
+}
+
+.box {
+    top: get-total(100, 50, 20);
+    right: get-total(100, 50);
+}

@@ -1,0 +1,99 @@
+.content > .box {
+  padding: 15px;
+}
+.content > .box > .title {
+  font-size: 18px;
+}
+.content .cat {
+  padding: 15px;
+}
+
+.content.premium :hover {
+  background-color: #eee;
+}
+.content.premium :before {
+  content: "Premium Box";
+}
+
+.class > .child {
+  padding: 10px;
+}
+
+.class > .child {
+  padding: 10px;
+}
+
+.class > .child {
+  padding: 10px;
+}
+
+.class {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.my-class {
+  background-color: white;
+  padding: 20px;
+}
+
+.my-class {
+  border: 1px solid #CCC;
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+.box h2,
+.box p {
+  font-size: 20px;
+}
+@media (max-width: 575px) {
+  .box h2,
+  .box p {
+    font-size: 16px;
+  }
+  .box h2 span,
+  .box p span {
+    font-weight: bold;
+  }
+}
+
+.box a {
+  color: #009688;
+}
+.box a:hover {
+  color: #e91e63;
+}
+
+.box {
+  font-size: 20px;
+}
+.box-holder {
+  width: 1000px;
+}
+.box-holder-content {
+  margin: auto;
+}
+
+.school {
+  padding: 20px;
+  direction: "rtl";
+  margin-left: 20px;
+}
+.school-box {
+  padding: 10px;
+}
+.school:hover .school-box {
+  background-color: #eee;
+}
+
+/* Theme Version: 1.0 */
+/* Website Theme Main Color Is: red */
+/* Website Theme Alternate Color Is: blue */
+.class {
+  color: green;
+}
+
+.class {
+  color: red;
+}/*# sourceMappingURL=assignment-1.css.map */
